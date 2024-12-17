@@ -37,7 +37,7 @@ export const homeContent = {
       `,
     buttonLabel: "Resume",
     buttonLink: "/path-to-cv",
-    avatar: "/avatar.jpg",
+    avatar: "${basePath}/avatar.jpg",
     imageAlt: "Avatar image",
   },
 };
