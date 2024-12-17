@@ -16,7 +16,7 @@ export default function Avatar({ image, className }: AvatarProps) {
   const component = useRef(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.fromTo(
         ".avatar",
         {
@@ -39,12 +39,12 @@ export default function Avatar({ image, className }: AvatarProps) {
         const componentCenterX = componentRect.left + componentRect.width / 2;
         // const componentCenterY = componentRect.top + componentRect.height / 2;
 
-        let componentPercent = {
+        const componentPercent = {
           x: (e.clientX - componentCenterX) / componentRect.width / 2,
           // y: (e.clientY - componentCenterY) / componentRect.height,
         };
 
-        let distFromCenter = 1 - Math.abs(componentPercent.x);
+        const distFromCenter = 1 - Math.abs(componentPercent.x);
 
         gsap
           .timeline({

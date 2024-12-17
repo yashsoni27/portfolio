@@ -2,7 +2,7 @@ import { homeContent } from "@/data/content";
 import Bounded from "@/app/components/Bounded";
 import Heading from "@/app/components/Heading";
 import Button from "../components/Button";
-import Image from "next/image";
+// import Image from "next/image";
 import Avatar from "../components/Avatar";
 import TechList from "../components/TechList";
 import Experience from "../components/Experience";

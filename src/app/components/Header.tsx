@@ -89,7 +89,7 @@ export default function Header() {
               />
             </li>
           </div>
-          <DesktopMenu settings={siteSettings} pathname={pathname} />
+          <DesktopMenu  pathname={pathname} />
 
           {/* {siteSettings.navItems.map(({ link, label }, index) => (
             <li key={index}>
@@ -103,10 +103,10 @@ export default function Header() {
 }
 
 function DesktopMenu({
-  settings,
+  // settings,
   pathname,
 }: {
-  settings: any;
+  // settings: any;
   pathname: string;
 }) {
   return (

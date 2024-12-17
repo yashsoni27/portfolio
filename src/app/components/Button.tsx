@@ -5,7 +5,7 @@ import { MdArrowOutward } from "react-icons/md";
 type ButtonProps = {
   linkField: string;
   label: string;
-  showIcon?: Boolean;
+  showIcon?: boolean;
   className?: string;
 };
 
