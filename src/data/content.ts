@@ -14,7 +14,7 @@ export const siteSettings = {
       link: "/blogs",
     },
   ],
-  cta_link: "https://www.google.com",
+  cta_link: "mailto:yash27soni@email.com",
   cta_label: "Contact Me",
   socialLinks: {
     github: "https://github.com/yashsoni27",
@@ -33,12 +33,12 @@ export const homeContent = {
   biography: {
     heading: "About Yash",
     description: `
-      <p>Hello! I'm a recent master's graduate in Advanced Computer Science, currently based in Liverpool. Originally from India, I'm passionate about understanding how things work, whether in tech or beyond. My interests span across software development, especially in mobile app development and backend systems.</p>
-      <p>As a dedicated developer, I specialize in creating robust applications using technologies like React Native, Node.js, and AWS. My journey in tech has led me to develop innovative solutions that not only meet functional requirements but are also crafted with attention to detail and usability.</p>
+      <p>Hello! I'm a recent master's graduate in Advanced Computer Science, currently based in Liverpool. Originally from India, I'm passionate about understanding how things work, whether in tech or beyond. My interests span across software development and innovative problem solving.</p>
+      <p>As a dedicated developer, I specialize in creating robust applications using technologies like React, .NET, Python and AWS. My journey in tech has led me to develop innovative solutions that not only meet functional requirements but are also crafted with attention to detail and usability.</p>
       <p>When I'm not coding, you'll find me exploring new technologies, participating in hackathons, or diving into the latest trends in software development.</p>
-      <p>Join me as I continue to push the boundaries of what's possible in the digital world!</p>
+      <p>Always excited to take on new challenges and bring fresh perspectives to the world of software development!</p>
       `,
-    buttonLabel: "Resume",
+      buttonLabel: "Resume",
     buttonLink:
       "https://drive.google.com/file/d/12jS7OdKQna6bHDS4meng0DBzBjrtRpqO/view?usp=sharing",
     avatar: "/avatar.jpg",
@@ -234,7 +234,7 @@ export const experienceContent = {
       institution: "University of Liverpool",
       description: `<p>Pursued a Master's degree focused on Advanced Computer Science, with hands-on experience in software development, cloud technologies, and data science. Gained expertise in various cloud technologies</p>`,
       // description: undefined,
-      logo: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Arms_of_the_University_of_Liverpool.svg/110px-Arms_of_the_University_of_Liverpool.svg.png',
     },
     {
       title: "Bachelors in Computer Science",
@@ -242,7 +242,7 @@ export const experienceContent = {
       institution: "SRM University Chennai",
       description: `<p>Completed a Bachelor's degree in Computer Science, where I gained strong foundations in programming concepts, algorithms, and software development principles.</p>`,
       // description: undefined,
-      logo: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fe/Srmseal.png/220px-Srmseal.png',
     },
   ],
 };

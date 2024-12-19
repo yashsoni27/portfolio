@@ -24,9 +24,14 @@ export default function Experience() {
   useEffect(() => {
     // Animate logos on scroll
     gsap.utils.toArray<HTMLElement>(".logo").forEach((logo, index) => {
+      const sectionIndex = parseInt(logo.dataset.sectionIndex || "0");
+      // console.log(sectionIndex);
       gsap.fromTo(
         logo,
-        { x: -250, opacity: 0 },
+        {
+          x: sectionIndex % 2 == 0 ? -200 : 200,
+          opacity: 0,
+        },
         {
           x: 0,
           opacity: 1,
@@ -50,14 +55,22 @@ export default function Experience() {
           key={sectionIndex}
           className="px-4 py-10 md:px-6 md:py-14 lg:py-16"
         >
-          <Heading as="h2" size="lg" className={`capitalize ${sectionIndex % 2 == 0 ? "flex" : "flex flex-row-reverse"}`}>
+          <Heading
+            as="h2"
+            size="lg"
+            className={`capitalize ${
+              sectionIndex % 2 == 0 ? "flex" : "flex flex-row-reverse"
+            }`}
+          >
             {section}
           </Heading>
           {experienceContent[section as keyof ExperienceContent].map(
             (item, itemIndex) => (
               <div
                 key={itemIndex}
-                className={`mx-6 mt-8 md:mx-18 md:mt-16 flex items-center justify-between ${sectionIndex % 2 == 0 ? "flex-row" : "flex-row-reverse"}`}
+                className={`mx-6 mt-8 md:mx-18 md:mt-16 flex items-center justify-between ${
+                  sectionIndex % 2 == 0 ? "flex-row" : "flex-row-reverse"
+                }`}
               >
                 <div className="flex-1 max-w-prose">
                   <Heading as="h3" size="sm">
@@ -84,6 +97,7 @@ export default function Experience() {
                       src={item.logo}
                       alt={`${item.institution} logo`}
                       className="logo ml-5 w-[200px] h-[200px] object-contain rounded-3xl"
+                      data-section-index={sectionIndex}
                     />
                   </div>
                 )}
