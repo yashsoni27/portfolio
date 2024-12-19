@@ -6,19 +6,7 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      // Adding custom utilities for mix-blend-mode
-      mixBlendMode: {
-        multiply: 'multiply',
-        screen: 'screen',
-        overlay: 'overlay',
-        darken: 'darken',
-        lighten: 'lighten',
-        // Add other blend modes as needed
-      },
-    },
-  },
+  theme: {},
   plugins: [
     require('@tailwindcss/typography'),
   ],

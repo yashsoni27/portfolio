@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
+// const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
   typescript: {
@@ -12,9 +12,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: isProd ? '/portfolio/' : '',
-  basePath: isProd ? '/portfolio' : '',
-  output: "export",
+  // assetPrefix: isProd ? '/portfolio/' : '',
+  // basePath: isProd ? '/portfolio' : '',
+  // output: "export",
   // distDir: "dist",
 };
 
