@@ -7,12 +7,17 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    // extend: {
-    //   colors: {
-    //     background: "var(--background)",
-    //     foreground: "var(--foreground)",
-    //   },
-    // },
+    extend: {
+      // Adding custom utilities for mix-blend-mode
+      mixBlendMode: {
+        multiply: 'multiply',
+        screen: 'screen',
+        overlay: 'overlay',
+        darken: 'darken',
+        lighten: 'lighten',
+        // Add other blend modes as needed
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
