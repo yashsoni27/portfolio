@@ -105,7 +105,7 @@ export default function TechList() {
             {techContent.tech.map(({ name, color, icon }, index) => (
               <div
                 key={index}
-                className="tech-row group relative flex h-[120px] w-[120px] items-center justify-center"
+                className="tech-row group relative flex h-[70px] w-[70px] md:h-[120px] md:w-[120px] items-center justify-center"
                 aria-label={name || undefined}
               >
                 <img
@@ -115,7 +115,7 @@ export default function TechList() {
                   alt={name}
                   className="tech-icon absolute"
                 />
-                <span className="tech-text absolute text-3xl text-slate-400 font-extrabold tracking-tighter">
+                <span className="tech-text absolute text-lg md:text-3xl text-slate-400 font-extrabold tracking-tighter">
                   {name}
                 </span>
 
