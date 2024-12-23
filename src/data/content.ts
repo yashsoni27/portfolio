@@ -215,7 +215,7 @@ export const experienceContent = {
     },
     {
       title: "Software Developer",
-      logo: '/logos/HexawindsLogo.jpg',
+      logo: '/logos/hexawindsLogo.jpg',
       duration: "Jan 2020 - Sep 2020",
       institution: "Hexawind Labs",
       description: `
