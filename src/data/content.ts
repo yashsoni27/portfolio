@@ -233,7 +233,6 @@ export const experienceContent = {
       duration: "Sep 2023 - Sep 2024",
       institution: "University of Liverpool",
       description: `<p>Pursued a Master's degree focused on Advanced Computer Science, with hands-on experience in software development, cloud technologies, and data science. Gained expertise in various cloud technologies</p>`,
-      // description: undefined,
       logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Arms_of_the_University_of_Liverpool.svg/110px-Arms_of_the_University_of_Liverpool.svg.png',
     },
     {
@@ -241,7 +240,6 @@ export const experienceContent = {
       duration: "Aug 2016 - May 2020",
       institution: "SRM University Chennai",
       description: `<p>Completed a Bachelor's degree in Computer Science, where I gained strong foundations in programming concepts, algorithms, and software development principles.</p>`,
-      // description: undefined,
       logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fe/Srmseal.png/220px-Srmseal.png',
     },
   ],
