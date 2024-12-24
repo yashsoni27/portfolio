@@ -2,7 +2,7 @@ import { homeContent } from "@/data/content";
 import Bounded from "@/app/components/Bounded";
 import Heading from "@/app/components/Heading";
 import Button from "../components/Button";
-// import Image from "next/image";
+import ScrollProgress from "../components/ScrollProgress";
 import Avatar from "../components/Avatar";
 import TechList from "../components/TechList";
 import Experience from "../components/Experience";
@@ -10,6 +10,7 @@ import Experience from "../components/Experience";
 export default function Page() {
   return (
     <>
+      <ScrollProgress />
       <Bounded>
         <div className="grid gap-x-8 gap-y-6 md:grid-cols-[2fr, 1fr]">
           <Heading as="h1" size="lg" className="col-start-1">

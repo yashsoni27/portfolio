@@ -51,6 +51,19 @@ const Hero = ({ firstName, lastName, tagLine }: HeroProps) => {
           duration: 1,
         }
       );
+
+      // Add floating particles
+      const particles = gsap.utils.toArray('.particle');
+      particles.forEach((particle) => {
+        gsap.to(".particle", {
+          x: 'random(-100, 100)',
+          y: 'random(-100, 100)',
+          duration: 'random(2, 4)',
+          repeat: -1,
+          yoyo: true,
+          ease: 'none'
+        });
+      });
     }, component);
     return () => ctx.revert();
   }, []);
@@ -84,6 +97,18 @@ const Hero = ({ firstName, lastName, tagLine }: HeroProps) => {
             {tagLine}
           </span>
         </div>
+      </div>
+      <div className="absolute inset-0 -z-10">
+        {[...Array(20)].map((_, i) => (
+          <div 
+            key={i}
+            className="particle absolute w-1 h-1 bg-yellow-300/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`
+            }}
+          />
+        ))}
       </div>
     </Bounded>
   );
