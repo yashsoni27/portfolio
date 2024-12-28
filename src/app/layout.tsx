@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import clsx from "clsx";
+import SecretTerminal from "./components/SecretTerminal";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -26,6 +27,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <SecretTerminal />
         <div className="absolute inset-0 -z-50 max-h-screen background-gradient"></div>
         <div className="absolute pointer-events-none inset-0 -z-40 h-full bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-soft-light"></div>
       </body>

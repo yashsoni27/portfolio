@@ -98,7 +98,8 @@ const Hero = ({ firstName, lastName, tagLine }: HeroProps) => {
           </span>
         </div>
       </div>
-      <div className="absolute inset-0 -z-10">
+
+      <div className="absolute inset-0 -z-10 overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <div 
             key={i}

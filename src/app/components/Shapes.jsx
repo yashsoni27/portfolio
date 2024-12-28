@@ -6,7 +6,123 @@ import { ContactShadows, Float, Environment } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
+const geometries = [
+  {
+    position: [0, 0, 0],
+    r: 0.3,
+    geometry: new THREE.IcosahedronGeometry(3),
+  },
+  {
+    position: [2, -1.2, 8],
+    r: 0.9,
+    geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16),
+  },
+  {
+    position: [-2.8, 4, -7],
+    r: 0.6,
+    geometry: new THREE.DodecahedronGeometry(1.5),
+  },
+  {
+    position: [-1.6, -1, 10],
+    r: 0.5,
+    geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32),
+  },
+  {
+    position: [3.2, 3.2, -8],
+    r: 0.7,
+    geometry: new THREE.OctahedronGeometry(1.5),
+  },
+];
+
 export default function Shapes() {
+  const [konamiActivated, setKonamiActivated] = useState(false);
+  const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+  const [konamiIndex, setKonamiIndex] = useState(0);
+  const meshRefs = useRef([]);
+  
+  // Store initial positions and rotations
+  const initialStates = useRef(geometries.map(g => ({
+    position: [...g.position],
+    rotation: [0, 0, 0],
+    scale: [1, 1, 1]
+  })));
+
+  const addMeshRef = (mesh, index) => {
+    meshRefs.current[index] = mesh;
+  };
+
+  const resetShapes = () => {
+    meshRefs.current.forEach((mesh, index) => {
+      if (mesh) {
+        const initialState = initialStates.current[index];
+        gsap.to(mesh.position, {
+          x: initialState.position[0],
+          y: initialState.position[1],
+          z: initialState.position[2],
+          duration: 2,
+          ease: "elastic.out(1, 0.3)"
+        });
+        gsap.to(mesh.rotation, {
+          x: initialState.rotation[0],
+          y: initialState.rotation[1],
+          z: initialState.rotation[2],
+          duration: 2,
+          ease: "elastic.out(1, 0.3)"
+        });
+        gsap.to(mesh.scale, {
+          x: initialState.scale[0],
+          y: initialState.scale[1],
+          z: initialState.scale[2],
+          duration: 2,
+          ease: "elastic.out(1, 0.3)"
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    const handleKeydown = (e) => {
+      if (e.key === konamiCode[konamiIndex]) {
+        if (konamiIndex === konamiCode.length - 1) {
+          console.log('BOOM! Konami code activated!');
+          setKonamiActivated(true);
+          
+          // Trigger explosion animation
+          meshRefs.current.forEach((mesh) => {
+            if (mesh) {
+              gsap.to(mesh.position, {
+                x: (Math.random() - 0.5) * 10,
+                y: (Math.random() - 0.5) * 10,
+                z: (Math.random() - 0.5) * 10,
+                duration: 2,
+                ease: "power4.out"
+              });
+              gsap.to(mesh.rotation, {
+                x: Math.random() * Math.PI * 4,
+                y: Math.random() * Math.PI * 4,
+                z: Math.random() * Math.PI * 4,
+                duration: 2,
+                ease: "power4.out"
+              });
+            }
+          });
+
+          // Reset after 3 seconds
+          setTimeout(() => {
+            resetShapes();
+            setKonamiActivated(false);
+          }, 3000);
+        }
+        setKonamiIndex((prev) => prev + 1);
+      } else {
+        setKonamiIndex(0);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+    return () => window.removeEventListener('keydown', handleKeydown);
+  }, [konamiIndex]);
+
   return (
     <div className="row-span-1 row-start-1 -mt-9 aspect-square md:col-span-1 md:col-start-2 md:mt-0">
       <Canvas
@@ -17,7 +133,7 @@ export default function Shapes() {
         camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
       >
         <Suspense fallback={null}>
-          <Geometries />
+          <Geometries addMeshRef={addMeshRef} />
           <ContactShadows
             position={[0, -3.5, 0]}
             opacity={0.65}
@@ -32,35 +148,7 @@ export default function Shapes() {
   );
 }
 
-function Geometries() {
-  const geometries = [
-    {
-      position: [0, 0, 0],
-      r: 0.3,
-      geometry: new THREE.IcosahedronGeometry(3), // Gem
-    },
-    {
-      position: [1, -0.75, 4],
-      r: 0.4,
-      geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), // Pill
-    },
-    {
-      position: [-1.4, 2, -4],
-      r: 0.6,
-      geometry: new THREE.DodecahedronGeometry(1.5), // Football
-    },
-    {
-      position: [-0.8, -0.5, 5],
-      r: 0.5,
-      geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32), // Donut
-    },
-    {
-      position: [1.6, 1.6, -4],
-      r: 0.7,
-      geometry: new THREE.OctahedronGeometry(1.5), // Diamond
-    },
-  ];
-
+function Geometries({ addMeshRef }) {
   const materials = [
     new THREE.MeshNormalMaterial(),
     new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
@@ -68,8 +156,8 @@ function Geometries() {
     new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
     new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.3 }),
     new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
-    new THREE.MeshStandardMaterial({ color: 0x2980b9, roughness: 0, metalness: 0.5 }),
-    new THREE.MeshStandardMaterial({ color: 0x2c3e50, roughness: 0.1, metalness: 0.5 }),
+    new THREE.MeshStandardMaterial({ color: 0x2980b9, roughness: 0, metalness: 0.4 }),
+    new THREE.MeshStandardMaterial({ color: 0x2c3e50, roughness: 0.1, metalness: 0.4 }),
   ];
 
   const soundEffects = [
@@ -79,23 +167,30 @@ function Geometries() {
     new Audio("/sounds/Knock4.ogg"),
   ]
 
-  return geometries.map(({ position, r, geometry }) => (
+  return geometries.map((props, index) => (
     <Geometry
-      key={JSON.stringify(position)}
-      position={position.map((p) => p * 2)}
-      geometry={geometry}
+      key={JSON.stringify(props.position)}
+      {...props}
+      addMeshRef={addMeshRef}
+      index={index}
       soundEffects={soundEffects}
       materials={materials}
-      r={r}
     />
   ));
 }
 
-function Geometry({ r, position, geometry, materials, soundEffects }) {
+function Geometry({ r, position, geometry, materials, soundEffects, addMeshRef, index }) {
   const meshRef = useRef();
   const [visible, setVisible] = useState(false);
 
   const startingMaterial = getRandomMaterial();
+
+  useEffect(() => {
+    if (meshRef.current) {
+      meshRef.current.scale.set(1, 1, 1);
+      addMeshRef(meshRef.current, index);
+    }
+  }, [addMeshRef, index]);
 
   function getRandomMaterial() {
     return gsap.utils.random(materials);

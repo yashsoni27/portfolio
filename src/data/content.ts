@@ -54,16 +54,6 @@ export const techContent = {
     //   icon: undefined
     // },
     {
-      name: "React",
-      color: "#29D8FF",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-    },
-    {
-      name: "Next.js",
-      color: "#000",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
-    },
-    {
       name: "HTML",
       color: "#e44d26",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
@@ -72,11 +62,6 @@ export const techContent = {
       name: "CSS",
       color: "#33a9dc",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
-    },
-    {
-      name: "TailwindCSS",
-      color: "#38bdf8",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     },
     {
       name: "JavaScript",
@@ -104,14 +89,34 @@ export const techContent = {
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
     },
     {
+      name: "jQuery",
+      color: "#0868ac",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg",
+    },
+    {
+      name: ".NetCore",
+      color: "#623697",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg",
+    },
+    {
+      name: "React",
+      color: "#29D8FF",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    },
+    {
+      name: "Next.js",
+      color: "#000",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+    },
+    {
       name: "Angular",
       color: "#c3002f",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg",
     },
     {
-      name: "jQuery",
-      color: "#0868ac",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg",
+      name: "TailwindCSS",
+      color: "#38bdf8",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     },
     {
       name: "Redux",
@@ -124,11 +129,6 @@ export const techContent = {
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg",
     },
     {
-      name: ".NetCore",
-      color: "#623697",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg",
-    },
-    {
       name: "Django",
       color: "#9b4f96",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
@@ -137,16 +137,6 @@ export const techContent = {
       name: "Node.js",
       color: "#4f9c43",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
-    },
-    {
-      name: "Docker",
-      color: "#019ac5",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
-    },
-    {
-      name: "Kubernetes",
-      color: "#326ce5",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
     },
     {
       name: "AWS",
@@ -159,14 +149,14 @@ export const techContent = {
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
     },
     {
-      name: "Git",
-      color: "#f34f29",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+      name: "Docker",
+      color: "#019ac5",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
     },
     {
-      name: "Postman",
-      color: "#f37036",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
+      name: "Kubernetes",
+      color: "#326ce5",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
     },
     {
       name: "MySQL",
@@ -182,6 +172,16 @@ export const techContent = {
       name: "PostgreSQL",
       color: "#336791",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+    },
+    {
+      name: "Git",
+      color: "#f34f29",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    },
+    {
+      name: "Postman",
+      color: "#f37036",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
     },
   ],
 };
