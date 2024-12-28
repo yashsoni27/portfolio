@@ -8,6 +8,7 @@ export default function Page() {
         firstName={homeContent.hero.firstName}
         lastName={homeContent.hero.lastName}
         tagLine={homeContent.hero.tagLine}
+        alternateTagLine={homeContent.hero.alternateTagLine}
       />
     </>
   );

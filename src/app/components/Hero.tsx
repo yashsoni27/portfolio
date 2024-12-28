@@ -8,11 +8,14 @@ interface HeroProps {
   firstName: string;
   lastName: string;
   tagLine: string;
+  alternateTagLine: string;
 }
 
-const Hero = ({ firstName, lastName, tagLine }: HeroProps) => {
-  console.log(firstName, lastName, tagLine);
+const Hero = ({ firstName, lastName, tagLine, alternateTagLine }: HeroProps) => {
+  // console.log(firstName, lastName, tagLine);
   const component = useRef(null);
+  const taglineRef = useRef<HTMLSpanElement>(null);
+  // const alternateTagLine = "Creative Developer";
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -64,9 +67,62 @@ const Hero = ({ firstName, lastName, tagLine }: HeroProps) => {
           ease: 'none'
         });
       });
+
+      // Add hover animation for tagline
+      if (taglineRef.current) {
+        console.log("Setting up hover animations"); // Debug log
+
+        const handleMouseEnter = () => {
+          console.log("Mouse enter"); // Debug log
+          gsap.to(taglineRef.current, {
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => {
+              console.log("Fade out complete"); // Debug log
+              if (taglineRef.current) {
+                taglineRef.current.textContent = alternateTagLine;
+                gsap.set(taglineRef.current, { opacity: 0 }); // Ensure it's hidden
+                gsap.to(taglineRef.current, {
+                  opacity: 1,
+                  duration: 0.3
+                });
+              }
+            }
+          });
+        };
+
+        const handleMouseLeave = () => {
+          console.log("Mouse leave"); // Debug log
+          gsap.to(taglineRef.current, {
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => {
+              if (taglineRef.current) {
+                taglineRef.current.textContent = tagLine;
+                gsap.set(taglineRef.current, { opacity: 0 }); // Ensure it's hidden
+                gsap.to(taglineRef.current, {
+                  opacity: 1,
+                  duration: 0.3
+                });
+              }
+            }
+          });
+        };
+
+        taglineRef.current.addEventListener('mouseenter', handleMouseEnter);
+        taglineRef.current.addEventListener('mouseleave', handleMouseLeave);
+
+        // Cleanup event listeners
+        return () => {
+          if (taglineRef.current) {
+            taglineRef.current.removeEventListener('mouseenter', handleMouseEnter);
+            taglineRef.current.removeEventListener('mouseleave', handleMouseLeave);
+          }
+        };
+      }
     }, component);
     return () => ctx.revert();
-  }, []);
+  }, [tagLine, alternateTagLine]);
 
   const renderLetters = (name: string, key: string) => {
     if (!name) return;
@@ -93,7 +149,10 @@ const Hero = ({ firstName, lastName, tagLine }: HeroProps) => {
               {renderLetters(lastName, "last")}
             </span>
           </h1>
-          <span className="job-title block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl">
+          <span 
+            ref={taglineRef}
+            className="job-title block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl cursor-pointer"
+          >
             {tagLine}
           </span>
         </div>

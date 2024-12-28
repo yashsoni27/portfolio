@@ -29,6 +29,7 @@ export const homeContent = {
     firstName: "Yash",
     lastName: "Soni",
     tagLine: "Full Stack Developer",
+    alternateTagLine: "Tech Enthusiast"
   },
   biography: {
     heading: "About Yash",
