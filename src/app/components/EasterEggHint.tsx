@@ -6,6 +6,8 @@ export default function EasterEggHint() {
   const { eggs } = useEasterEggs();
   const [currentHint, setCurrentHint] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const discovered = eggs.filter((egg) => egg.discovered).length;
+  const total = eggs.length;
 
   useEffect(() => {
     // Show hints for undiscovered eggs periodically
@@ -31,6 +33,9 @@ export default function EasterEggHint() {
   return (
     <div className="fixed bottom-4 right-4 max-w-xs bg-black/80 text-white p-4 rounded-lg shadow-lg transition-opacity duration-500">
       <p className="text-sm italic">💡 {currentHint}</p>
+      <p className="text-xs italic text-right">
+        Easter eggs found: {discovered}/{total}
+      </p>
     </div>
   );
 } 
