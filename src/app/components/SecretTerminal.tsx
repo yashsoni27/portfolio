@@ -68,7 +68,7 @@ export default function SecretTerminal() {
       description: "Displays welcome message",
       action: () => `
 ╔════════════════════════════════════════╗
-║        Welcome to Secret Terminal       ║
+║        Welcome to Secret Terminal      ║
 ║     Type 'help' to see all commands    ║
 ╚════════════════════════════════════════╝`
     },
