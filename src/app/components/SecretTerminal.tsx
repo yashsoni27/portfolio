@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { siteSettings, techContent } from "@/data/content";
+import { useEasterEggs } from '../context/EasterEggContext';
 
 // Enhanced types
 type CommandHistory = {
@@ -23,6 +24,7 @@ export default function SecretTerminal() {
   const [output, setOutput] = useState<string[]>([]);
   const [commandHistory, setCommandHistory] = useState<CommandHistory[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
+  const { markDiscovered } = useEasterEggs();
 
   // Enhanced commands
   const commands: Commands = {
@@ -67,10 +69,10 @@ export default function SecretTerminal() {
     banner: {
       description: "Displays welcome message",
       action: () => `
-╔════════════════════════════════════════╗
-║        Welcome to Secret Terminal      ║
-║     Type 'help' to see all commands    ║
-╚════════════════════════════════════════╝`
+      ╔════════════════════════════════════════╗
+      ║        Welcome to Secret Terminal      ║
+      ║     Type 'help' to see all commands    ║
+      ╚════════════════════════════════════════╝`
     },
     history: {
       description: "Shows command history",
@@ -140,6 +142,7 @@ export default function SecretTerminal() {
       if (e.ctrlKey && e.key === "`") {
         console.log("Secret Terminal visible now");
         setVisible((v) => !v);
+        markDiscovered('terminal');
         setOutput([]);
       }
     };

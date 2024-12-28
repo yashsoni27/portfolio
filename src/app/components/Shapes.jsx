@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Float, Environment } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useEasterEggs } from '../context/EasterEggContext';
 
 const geometries = [
   {
@@ -39,6 +40,7 @@ export default function Shapes() {
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
   const [konamiIndex, setKonamiIndex] = useState(0);
   const meshRefs = useRef([]);
+  const { markDiscovered } = useEasterEggs();
   
   // Store initial positions and rotations
   const initialStates = useRef(geometries.map(g => ({
@@ -85,6 +87,7 @@ export default function Shapes() {
       if (e.key === konamiCode[konamiIndex]) {
         if (konamiIndex === konamiCode.length - 1) {
           console.log('BOOM! Konami code activated!');
+          markDiscovered('konami');
           setKonamiActivated(true);
           
           // Trigger explosion animation

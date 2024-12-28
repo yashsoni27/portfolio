@@ -1,8 +1,9 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Bounded from "@/app/components/Bounded";
 import Shapes from "./Shapes";
+import { useEasterEggs } from "../context/EasterEggContext";
 
 interface HeroProps {
   firstName: string;
@@ -11,11 +12,18 @@ interface HeroProps {
   alternateTagLine: string;
 }
 
-const Hero = ({ firstName, lastName, tagLine, alternateTagLine }: HeroProps) => {
+const Hero = ({
+  firstName,
+  lastName,
+  tagLine,
+  alternateTagLine,
+}: HeroProps) => {
   // console.log(firstName, lastName, tagLine);
   const component = useRef(null);
   const taglineRef = useRef<HTMLSpanElement>(null);
-  // const alternateTagLine = "Creative Developer";
+  const { markDiscovered } = useEasterEggs();
+  const [pressTimer, setPressTimer] = useState<NodeJS.Timeout | null>(null);
+  const [pressCount, setPressCount] = useState(0);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,43 +64,43 @@ const Hero = ({ firstName, lastName, tagLine, alternateTagLine }: HeroProps) => 
       );
 
       // Add floating particles
-      const particles = gsap.utils.toArray('.particle');
+      const particles = gsap.utils.toArray(".particle");
       particles.forEach((particle) => {
         gsap.to(".particle", {
-          x: 'random(-100, 100)',
-          y: 'random(-100, 100)',
-          duration: 'random(2, 4)',
+          x: "random(-100, 100)",
+          y: "random(-100, 100)",
+          duration: "random(2, 4)",
           repeat: -1,
           yoyo: true,
-          ease: 'none'
+          ease: "none",
         });
       });
 
       // Add hover animation for tagline
       if (taglineRef.current) {
-        console.log("Setting up hover animations"); // Debug log
+        // console.log("Setting up hover animations"); // Debug log
 
         const handleMouseEnter = () => {
-          console.log("Mouse enter"); // Debug log
+          // console.log("Mouse enter"); // Debug log
           gsap.to(taglineRef.current, {
             opacity: 0,
             duration: 0.3,
             onComplete: () => {
-              console.log("Fade out complete"); // Debug log
+              // console.log("Fade out complete"); // Debug log
               if (taglineRef.current) {
                 taglineRef.current.textContent = alternateTagLine;
                 gsap.set(taglineRef.current, { opacity: 0 }); // Ensure it's hidden
                 gsap.to(taglineRef.current, {
                   opacity: 1,
-                  duration: 0.3
+                  duration: 0.3,
                 });
               }
-            }
+            },
           });
         };
 
         const handleMouseLeave = () => {
-          console.log("Mouse leave"); // Debug log
+          // console.log("Mouse leave"); // Debug log
           gsap.to(taglineRef.current, {
             opacity: 0,
             duration: 0.3,
@@ -102,21 +110,27 @@ const Hero = ({ firstName, lastName, tagLine, alternateTagLine }: HeroProps) => 
                 gsap.set(taglineRef.current, { opacity: 0 }); // Ensure it's hidden
                 gsap.to(taglineRef.current, {
                   opacity: 1,
-                  duration: 0.3
+                  duration: 0.3,
                 });
               }
-            }
+            },
           });
         };
 
-        taglineRef.current.addEventListener('mouseenter', handleMouseEnter);
-        taglineRef.current.addEventListener('mouseleave', handleMouseLeave);
+        taglineRef.current.addEventListener("mouseenter", handleMouseEnter);
+        taglineRef.current.addEventListener("mouseleave", handleMouseLeave);
 
         // Cleanup event listeners
         return () => {
           if (taglineRef.current) {
-            taglineRef.current.removeEventListener('mouseenter', handleMouseEnter);
-            taglineRef.current.removeEventListener('mouseleave', handleMouseLeave);
+            taglineRef.current.removeEventListener(
+              "mouseenter",
+              handleMouseEnter
+            );
+            taglineRef.current.removeEventListener(
+              "mouseleave",
+              handleMouseLeave
+            );
           }
         };
       }
@@ -136,20 +150,52 @@ const Hero = ({ firstName, lastName, tagLine, alternateTagLine }: HeroProps) => 
     ));
   };
 
+  const handleTouchStart = () => {
+    console.log("pressed")
+    setPressTimer(
+      setTimeout(() => {
+        setPressCount((prev) => prev + 1);
+        if (pressCount >= 2) {
+          // Trigger fun animation on name
+          markDiscovered('longpress');
+          gsap.to(".name-animation", {
+            y: -150,
+            stagger: 0.05,
+            duration: 0.3,
+            ease: "power2.out",
+            yoyo: true,
+            repeat: 1,
+          });
+        }
+      }, 1000)
+    );
+  };
+
+  const handleTouchEnd = () => {
+    if (pressTimer) clearTimeout(pressTimer);
+  };
+
   return (
     <Bounded ref={component}>
       <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center">
         <Shapes />
-        <div className="col-start-1 md:row-start-1">
+        <div className="col-start-1 md:row-start-1" style={{userSelect: "none"}}>
           <h1 className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter">
-            <span className="block text-slate-300">
-              {renderLetters(firstName, "first")}
-            </span>
-            <span className="-mt-[.2em] block text-slate-500">
-              {renderLetters(lastName, "last")}
-            </span>
+            <div 
+              onTouchStart={handleTouchStart} 
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleTouchStart}
+              onMouseUp={handleTouchEnd}
+            >
+              <span className="block text-slate-300">
+                {renderLetters(firstName, "first")}
+              </span>
+              <span className="-mt-[.2em] block text-slate-500">
+                {renderLetters(lastName, "last")}
+              </span>
+            </div>
           </h1>
-          <span 
+          <span
             ref={taglineRef}
             className="job-title block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl cursor-pointer"
           >
@@ -160,12 +206,12 @@ const Hero = ({ firstName, lastName, tagLine, alternateTagLine }: HeroProps) => 
 
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {[...Array(20)].map((_, i) => (
-          <div 
+          <div
             key={i}
             className="particle absolute w-1 h-1 bg-yellow-300/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
+              top: `${Math.random() * 100}%`,
             }}
           />
         ))}

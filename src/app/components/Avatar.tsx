@@ -2,7 +2,8 @@
 import clsx from "clsx";
 import gsap from "gsap";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useEasterEggs } from '../context/EasterEggContext';
 
 type AvatarProps = {
   image: {
@@ -14,6 +15,8 @@ type AvatarProps = {
 
 export default function Avatar({ image, className }: AvatarProps) {
   const component = useRef(null);
+  const [lastTap, setLastTap] = useState(0);
+  const { markDiscovered } = useEasterEggs();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -67,8 +70,41 @@ export default function Avatar({ image, className }: AvatarProps) {
     }, component);
   }, []);
 
+  const handleInteraction = (e: React.TouchEvent | React.MouseEvent) => {
+    const now = Date.now();
+    const DOUBLE_DELAY = 300;
+    
+    if (now - lastTap < DOUBLE_DELAY) {
+      // Create emoji animation at interaction location
+      const emoji = document.createElement('div');
+      // emoji.innerHTML = '❤️';
+      emoji.innerHTML = '⚡';
+      emoji.style.position = 'absolute';
+      
+      // Handle both touch and mouse events
+      const x = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
+      const y = 'touches' in e ? e.touches[0].clientY : (e as React.MouseEvent).clientY;
+      
+      emoji.style.left = `${x}px`;
+      emoji.style.top = `${y}px`;
+      document.body.appendChild(emoji);
+
+      gsap.to(emoji, {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        onComplete: () => emoji.remove(),
+      });
+
+      // Mark easter egg as discovered
+      markDiscovered('doubletap');
+    }
+    
+    setLastTap(now);
+  };
+
   return (
-    <div ref={component} className={clsx("relative h-full w-full", className)}>
+    <div ref={component} className={clsx("relative h-full w-full", className)} onTouchStart={handleInteraction}>
       <div className="avatar aspect-square1 overflow-hidden rounded-3xl border-2 border-slate-700 opacity-0f">
         <Image
           src={image.url}
