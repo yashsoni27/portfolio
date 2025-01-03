@@ -18,12 +18,10 @@ const Hero = ({
   tagLine,
   alternateTagLine,
 }: HeroProps) => {
-  // console.log(firstName, lastName, tagLine);
   const component = useRef(null);
   const taglineRef = useRef<HTMLSpanElement>(null);
   const { markDiscovered } = useEasterEggs();
   const [pressTimer, setPressTimer] = useState<NodeJS.Timeout | null>(null);
-  const [pressCount, setPressCount] = useState(0);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -78,18 +76,18 @@ const Hero = ({
 
       // Add hover animation for tagline
       if (taglineRef.current) {
-        // console.log("Setting up hover animations"); // Debug log
+        // console.log("Setting up hover animations"); 
 
         const handleMouseEnter = () => {
-          // console.log("Mouse enter"); // Debug log
+          // console.log("Mouse enter"); 
           gsap.to(taglineRef.current, {
             opacity: 0,
             duration: 0.3,
             onComplete: () => {
-              // console.log("Fade out complete"); // Debug log
+              // console.log("Fade out complete"); 
               if (taglineRef.current) {
                 taglineRef.current.textContent = alternateTagLine;
-                gsap.set(taglineRef.current, { opacity: 0 }); // Ensure it's hidden
+                gsap.set(taglineRef.current, { opacity: 0 }); // Ensuring it's hidden
                 gsap.to(taglineRef.current, {
                   opacity: 1,
                   duration: 0.3,
@@ -107,7 +105,7 @@ const Hero = ({
             onComplete: () => {
               if (taglineRef.current) {
                 taglineRef.current.textContent = tagLine;
-                gsap.set(taglineRef.current, { opacity: 0 }); // Ensure it's hidden
+                gsap.set(taglineRef.current, { opacity: 0 }); // Ensuring it's hidden
                 gsap.to(taglineRef.current, {
                   opacity: 1,
                   duration: 0.3,
@@ -151,11 +149,9 @@ const Hero = ({
   };
 
   const handleTouchStart = () => {
-    console.log("pressed")
+    // console.log("pressed")
     setPressTimer(
       setTimeout(() => {
-        setPressCount((prev) => prev + 1);
-        if (pressCount >= 2) {
           // Trigger fun animation on name
           markDiscovered('longpress');
           gsap.to(".name-animation", {
@@ -166,7 +162,6 @@ const Hero = ({
             yoyo: true,
             repeat: 1,
           });
-        }
       }, 1000)
     );
   };

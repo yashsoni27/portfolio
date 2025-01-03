@@ -29,19 +29,18 @@ export const homeContent = {
     firstName: "Yash",
     lastName: "Soni",
     tagLine: "Full Stack Developer",
-    alternateTagLine: "Tech Enthusiast"
+    alternateTagLine: "Tech Enthusiast",
   },
   biography: {
     heading: "About Yash",
     description: `
       <p>Hello! I'm a recent master's graduate in Advanced Computer Science, currently based in Liverpool. Originally from India, I'm passionate about understanding how things work, whether in tech or beyond. My interests span across software development and innovative problem solving.</p>
       <p>As a dedicated developer, I specialize in creating robust applications using technologies like React, .NET, Python and AWS. My journey in tech has led me to develop innovative solutions that not only meet functional requirements but are also crafted with attention to detail and usability.</p>
-      <p>When I'm not coding, you'll find me exploring new technologies, participating in hackathons, or diving into the latest trends in software development.</p>
+      <p>When I'm not coding, you'll find me exploring new technologies, playing new tunes on guitar or hiking up the nearest peak.</p>
       <p>Always excited to take on new challenges and bring fresh perspectives to the world of software development!</p>
       `,
-      buttonLabel: "Resume",
-    buttonLink:
-      "https://drive.google.com/file/d/12jS7OdKQna6bHDS4meng0DBzBjrtRpqO/view?usp=sharing",
+    buttonLabel: "Resume",
+    buttonLink: "/Yash_Soni_CV.pdf",
     avatar: "/avatar.jpg",
     imageAlt: "Avatar image",
   },
@@ -190,41 +189,41 @@ export const experienceContent = {
   experience: [
     {
       title: "Freelance Web Developer",
-      logo: '/logos/RabaUk.png',
+      logo: "/logos/RabaUk.png",
       duration: "Feb 2024 - Jun 2024",
       institution: "RABA UK",
       description: `
       <ul>
-        <li>Engineered: Built a fully functional website from scratch using Next.js, JavaScript, and Tailwind CSS.</li>
-        <li>Managed: Content via Strapi CMS, improving search engine rankings by 25%.</li>
-        <li>Secured: Incorporated input validation and HTTPS enforcement for site security.</li>
+        <li>Engineered a fully functional website from scratch using Next.js, JavaScript, and Tailwind CSS.</li>
+        <li>Spearheaded content management with Strapi CMS, resulting in a 25% increase in website traffic.</li>
+        <li>Implemented robust security measures through input validation and HTTPS enforcement.</li>
       </ul>`,
     },
     {
       title: "Full Stack Developer",
-      logo: '/logos/TCS.png',
+      logo: "/logos/TCS.png",
       duration: "Oct 2020 - Aug 2023",
       institution: "Tata Consultancy Services",
       description: `
       <ul>
-        <li>Developed: Built a medical image viewer from scratch using Python and .NET.</li>
-        <li>Optimized: Implemented microservices architecture, enhancing scalability and improving data retrieval by 30%.</li>
-        <li>Collaborated: Worked with multiple teams to design and develop complex software systems.</li>
-        <li>Integrated: Created and deployed microservices and APIs, increasing client satisfaction.</li>
-        <li>Designed: Developed user-friendly front-end interfaces using React, Angular, and ASP.NET.</li>
+        <li>Developed and integrated a Python-based Medical Image (Dicom) viewer into the EDC module, enabling efficient visualization and analysis of patient data, leading to 15% increase in diagnostic accuracy.</li>
+        <li>Implemented microservices architecture that resulted in a 30% improvement in data retrieval speed.</li>
+        <li>Successfully collaborated with cross-functional teams to design and develop complex solutions within tight deadlines.</li>
+        <li>Designed, developed, and deployed 20+ microservices and APIs, resulting in improved data consistency, increased system stability, leading to increased client satisfaction and a 10% increase in customer retention.</li>
+        <li>Designed and developed user-friendly and intuitive front-end interfaces using React, Angular, and ASP.NET, resulting in a 25% increase in user engagement and 15% reduction in user support tickets.</li>
       </ul>`,
     },
     {
       title: "Software Developer",
-      logo: '/logos/hexawindsLogo.jpg',
+      logo: "/logos/hexawindsLogo.jpg",
       duration: "Jan 2020 - Sep 2020",
       institution: "Hexawind Labs",
       description: `
       <ul>
-        <li>Developed: High-performance websites using React.js and optimized server-side rendering.</li>
-        <li>Secured: Implemented OAuth for secure user authentication.</li>
-        <li>Managed: AWS infrastructure, ensuring 99.9% uptime and handling a 30% increase in user traffic.</li>
-        <li>Collaborated: Worked effectively with the team to enhance efficiency and drive successful web development tasks.</li>
+        <li>Developed high-performance websites using React.js and optimized server-side rendering, resulting in a 20% reduction in page load times, improved SEO rankings, increased user conversion rates.</li>
+        <li>Actively collaborated with cross-functional teams to streamline development processes, leading to 15% reduction in development time, improved team communication.</li>
+        <li>Implemented OAuth for secure user authentication, enhancing platform security and improving user experience.</li>
+        <li>Managed AWS infrastructure (EC2, S3, Load Balancing, CloudWatch, CloudTrail), ensuring 99.9% uptime and successfully scaling the system to handle a 30% increase in user traffic.</li>
       </ul>`,
     },
   ],
@@ -234,14 +233,14 @@ export const experienceContent = {
       duration: "Sep 2023 - Sep 2024",
       institution: "University of Liverpool",
       description: `<p>Pursued a Master's degree focused on Advanced Computer Science, with hands-on experience in software development, cloud technologies, and data science. Gained expertise in various cloud technologies</p>`,
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Arms_of_the_University_of_Liverpool.svg/110px-Arms_of_the_University_of_Liverpool.svg.png',
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Arms_of_the_University_of_Liverpool.svg/110px-Arms_of_the_University_of_Liverpool.svg.png",
     },
     {
       title: "Bachelors in Computer Science",
       duration: "Aug 2016 - May 2020",
       institution: "SRM University Chennai",
       description: `<p>Completed a Bachelor's degree in Computer Science, where I gained strong foundations in programming concepts, algorithms, and software development principles.</p>`,
-      logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fe/Srmseal.png/220px-Srmseal.png',
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fe/Srmseal.png/220px-Srmseal.png",
     },
   ],
 };
@@ -254,39 +253,41 @@ export const projectContent = {
       tags: ["LLM", "React Native", "PlaidAPI"],
       img: "/contentList/splash.png",
       link: "https://github.com/yashsoni27/FinTrack",
-    }
-  ]
+    },
+  ],
 };
 export const blogContent = {
   heading: "Blogs",
   blogs: [
     {
-      title: 'Convenience vs. Cognition: Are AI Tools Like ChatGPT Replacing Critical Thought?',
-      shortDesc: '',
-      tags: ['ChatGPT', 'AI', 'Critical Thinking'],
-      img: 'https://miro.medium.com/v2/resize:fit:640/format:webp/1*95gF6K9pGWnw9pcJB1CmVw.jpeg',
-      link: 'https://medium.com/@yash27soni/convenience-vs-cognition-are-ai-tools-like-chatgpt-replacing-critical-thought-46cce3359473',
+      title:
+        "Convenience vs. Cognition: Are AI Tools Like ChatGPT Replacing Critical Thought?",
+      shortDesc: "",
+      tags: ["ChatGPT", "AI", "Critical Thinking"],
+      img: "https://miro.medium.com/v2/resize:fit:640/format:webp/1*95gF6K9pGWnw9pcJB1CmVw.jpeg",
+      link: "https://medium.com/@yash27soni/convenience-vs-cognition-are-ai-tools-like-chatgpt-replacing-critical-thought-46cce3359473",
     },
     {
-      title: 'Unveiling Earth’s Seismic Activity: An Interactive Earthquake Visualization',
-      shortDesc: '',
-      tags: ['Python', 'GIS', 'Folium', 'Earthquake'],
-      img: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*i4EByzy9v1MkXhGTqSrErQ.png',
-      link: 'https://medium.com/python-in-plain-english/unveiling-earths-seismic-activity-an-interactive-earthquake-visualization-3aca65f2967d',
+      title:
+        "Unveiling Earth’s Seismic Activity: An Interactive Earthquake Visualization",
+      shortDesc: "",
+      tags: ["Python", "GIS", "Folium", "Earthquake"],
+      img: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*i4EByzy9v1MkXhGTqSrErQ.png",
+      link: "https://medium.com/python-in-plain-english/unveiling-earths-seismic-activity-an-interactive-earthquake-visualization-3aca65f2967d",
     },
     {
-      title: 'ML in Music',
-      shortDesc: '',
-      tags: ['ML', 'Music', 'Tech', 'AI'],
-      img: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*kpwxbO_bJH7afXncAZfT_Q.png',
-      link: 'https://medium.com/@yash27soni/ml-in-music-57da5f86c677',
+      title: "ML in Music",
+      shortDesc: "",
+      tags: ["ML", "Music", "Tech", "AI"],
+      img: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*kpwxbO_bJH7afXncAZfT_Q.png",
+      link: "https://medium.com/@yash27soni/ml-in-music-57da5f86c677",
     },
     {
-      title: 'Hashgraph — The Blockchain Killer',
-      shortDesc: '',
-      tags: ['Blockchain', 'Distributed Ledgers', 'Tech'],
-      img: 'https://miro.medium.com/v2/resize:fit:720/format:webp/0*XW6vpmE4YcuoaUWi',
-      link: 'https://medium.com/@yash27soni/hashgraph-the-blockchain-killer-8be212ebf08b',
+      title: "Hashgraph — The Blockchain Killer",
+      shortDesc: "",
+      tags: ["Blockchain", "Distributed Ledgers", "Tech"],
+      img: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*XW6vpmE4YcuoaUWi",
+      link: "https://medium.com/@yash27soni/hashgraph-the-blockchain-killer-8be212ebf08b",
     },
   ],
 };

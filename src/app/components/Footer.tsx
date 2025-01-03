@@ -26,7 +26,11 @@ export default async function Footer() {
             © {new Date().getFullYear()} {siteSettings.name}
           </p>
         </div>
-        <nav className="navigation" aria-label="Footer Navigation">
+        {/* <div>
+          <p className="text-xs text-slate-300">Made with ❤️</p>
+        </div> */}
+        {/* Footer Navigation */}
+        {/* <nav className="navigation" aria-label="Footer Navigation">
           <ul className="flex items-center gap-1">
             {siteSettings.navItems.map(({ link, label }, index) => (
               <React.Fragment key={label}>
@@ -51,7 +55,7 @@ export default async function Footer() {
               </React.Fragment>
             ))}
           </ul>
-        </nav>
+        </nav> */}
         <div className="socials inline-flex justify-center sm:justify-end">
           {siteSettings.socialLinks.github && (
             <Link
