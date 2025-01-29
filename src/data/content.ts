@@ -254,6 +254,13 @@ export const projectContent = {
       img: "/contentList/splash.png",
       link: "https://github.com/yashsoni27/FinTrack",
     },
+    {
+      title: "DeepSeek extension for VSCode",
+      shortDesc: "",
+      tags: ["DeepSeek-r1", "Extension", "VSCode"],
+      img: "/contentList/deepchat.png",
+      link: "https://github.com/yashsoni27/deepseek-ext",
+    }
   ],
 };
 export const blogContent = {
