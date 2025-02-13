@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
@@ -35,6 +36,7 @@ export default function RootLayout({
           <div className="absolute pointer-events-none inset-0 -z-40 h-full bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-soft-light"></div>
           <EasterEggHint />
         </EasterEggProvider>
+        <Analytics />
       </body>
     </html>
   );
