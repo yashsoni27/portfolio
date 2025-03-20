@@ -134,6 +134,11 @@ export const techContent = {
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
     },
     {
+      name: "Fast API",
+      color: "#049688",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-plain.svg",
+    },
+    {
       name: "Node.js",
       color: "#4f9c43",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
@@ -248,17 +253,24 @@ export const projectContent = {
   heading: "Projects",
   projects: [
     {
+      title: "F1 Dashboard",
+      shortDesc: "",
+      tags: ["Formula 1", "Real-time telemetry", "Data Analysis"],
+      // img: "/contentList/splash.png",
+      link: "https://github.com/yashsoni27/f1-dash",
+    },
+    {
       title: "FinTrack - LLM based finance tracker",
       shortDesc: "",
       tags: ["LLM", "React Native", "PlaidAPI"],
-      img: "/contentList/splash.png",
+      // img: "/contentList/splash.png",
       link: "https://github.com/yashsoni27/FinTrack",
     },
     {
       title: "DeepSeek extension for VSCode",
       shortDesc: "",
       tags: ["DeepSeek-r1", "Extension", "VSCode"],
-      img: "/contentList/deepchat.png",
+      // img: "/contentList/deepchat.png",
       link: "https://github.com/yashsoni27/deepseek-ext",
     }
   ],
