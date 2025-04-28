@@ -219,7 +219,7 @@ export const experienceContent = {
       </ul>`,
     },
     {
-      title: "Software Developer",
+      title: "Web Developer",
       logo: "/logos/hexawindsLogo.jpg",
       duration: "Jan 2020 - Sep 2020",
       institution: "Hexawind Labs",
@@ -253,17 +253,17 @@ export const projectContent = {
   heading: "Projects",
   projects: [
     {
-      title: "F1 Dashboard",
+      title: "Delta Dash",
       shortDesc: "",
       tags: ["Formula 1", "Real-time telemetry", "Data Analysis"],
-      // img: "/contentList/splash.png",
+      img: "/contentList/DeltaDash.png",
       link: "https://github.com/yashsoni27/f1-dash",
     },
     {
       title: "FinTrack - LLM based finance tracker",
       shortDesc: "",
       tags: ["LLM", "React Native", "PlaidAPI"],
-      // img: "/contentList/splash.png",
+      img: "/contentList/Fintracker.png",
       link: "https://github.com/yashsoni27/FinTrack",
     },
     {
