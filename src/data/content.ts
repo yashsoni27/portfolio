@@ -257,7 +257,7 @@ export const projectContent = {
       shortDesc: "",
       tags: ["Formula 1", "Real-time telemetry", "Data Analysis"],
       img: "/contentList/DeltaDash.png",
-      link: "https://github.com/yashsoni27/f1-dash",
+      link: "https://github.com/yashsoni27/delta-dash",
     },
     {
       title: "FinTrack - LLM based finance tracker",
