@@ -214,17 +214,17 @@ const Hero = ({
       </div>
 
       {nowPlaying ? (
-        <div className="relative flex items-center gap-6 p-6 rounded-3xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl max-w-xl mx-auto mt-8 group transition-all duration-300 hover:scale-[1.03]">
+        <a className="relative flex items-center gap-6 p-6 rounded-3xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl max-w-xl mx-auto mt-8 group transition-all duration-300 hover:scale-[1.03]" href={nowPlaying?.url}>
           <img
             src={nowPlaying?.image_url}
             alt="Album art"
             className="w-24 h-24 rounded-2xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300"
           />
           <div className="flex flex-col justify-center">
-            <div className="font-bold text-2xl text-slate-900 drop-shadow-sm group-hover:text-slate-900 transition-colors duration-300">
+            <div className="font-bold text-2xl text-slate-300 drop-shadow-sm transition-colors duration-300">
               {nowPlaying?.title}
             </div>
-            <div className="text-lg text-slate-500 font-medium group-hover:text-slate-700 transition-colors duration-300">
+            <div className="text-lg text-slate-400 font-medium transition-colors duration-300">
               {nowPlaying?.artiste}
             </div>
             <div className="mt-2 flex items-center gap-2">
@@ -245,10 +245,10 @@ const Hero = ({
               )}
             </div>
           </div>
-          <div className="absolute right-4 top-4 bg-black/60 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md backdrop-blur-sm">
+          <div className="absolute right-4 top-4 bg-black/50 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md backdrop-blur-sm">
             Spotify
           </div>
-        </div>
+        </a>
       ) : null}
 
       <div className="absolute inset-0 -z-10 overflow-hidden">

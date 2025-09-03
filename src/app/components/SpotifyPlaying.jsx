@@ -1,4 +1,4 @@
-import { NowPlaying, Providers } from "@BolajiOlajide/now-playing";
+import { NowPlaying, Providers } from "@bolajiOlajide/now-playing";
 
 export async function SpotifyPlaying() {
   const client_id = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
