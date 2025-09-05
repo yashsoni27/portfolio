@@ -10,6 +10,7 @@ import Button from "./Button";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+
   return (
     <header className="top-0 z-50 mx-auto max-w-7xl md:sticky md:top-4">
       <nav aria-label="Main Navigation">
@@ -55,7 +56,7 @@ export default function Header() {
                     href={link}
                     onClick={() => setOpen(false)}
                     aria-current={
-                      pathname.includes(link as string)
+                      pathname?.includes(link as string)
                         ? "page"
                         : undefined
                     }
@@ -63,7 +64,7 @@ export default function Header() {
                     <span
                       className={clsx(
                         "absolute inset-0 z-0 h-full translate-y-12 rounded bg-yellow-300 transition-transform duration-300 ease-in-out group-hover:translate-y-0",
-                        pathname.includes(link as string)
+                        pathname?.includes(link as string)
                           ? "translate-y-6"
                           : "translate-y-18"
                       )}
@@ -89,7 +90,7 @@ export default function Header() {
               />
             </li>
           </div>
-          <DesktopMenu  pathname={pathname} />
+          <DesktopMenu pathname={pathname} />
 
           {/* {siteSettings.navItems.map(({ link, label }, index) => (
             <li key={index}>
@@ -107,7 +108,7 @@ function DesktopMenu({
   pathname,
 }: {
   // settings: any;
-  pathname: string;
+  pathname: string | null;
 }) {
   return (
     <div className="relative z-50 hidden flex-row items-center gap-1 bg-transparent py-0 md:flex">
@@ -120,13 +121,13 @@ function DesktopMenu({
               )}
               href={link}
               aria-current={
-                pathname.includes(link as string) ? "page" : undefined
+                pathname?.includes(link as string) ? "page" : undefined
               }
             >
               <span
                 className={clsx(
                   "absolute inset-0 z-0 h-full rounded bg-yellow-300 transition-transform  duration-300 ease-in-out group-hover:translate-y-0",
-                  pathname.includes(link as string)
+                  pathname?.includes(link as string)
                     ? "translate-y-6"
                     : "translate-y-8",
                 )}
