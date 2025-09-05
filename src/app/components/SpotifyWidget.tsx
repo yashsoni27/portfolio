@@ -77,7 +77,7 @@ export default function SpotifyWidget({
       {/* Main widget with album art as circular icon */}
       <div className="relative bg-gradient-to-br from-black to-slate-950 rounded-full shadow-lg border border-slate-700 transition-all group-hover:border-purple-300/50 group-hover:shadow-xl flex items-center px-2 py-2">
         <motion.div
-          className="w-10 h-10 rounded-full overflow-hidden border border-slate-600 bg-black flex items-center justify-center mr-2"
+          className="w-12 h-12 rounded-full overflow-hidden border border-slate-600 bg-black flex items-center justify-center sm:me-2"
           animate={track.isPlaying ? { rotate: 360 } : { rotate: 0 }}
           transition={
             track.isPlaying
@@ -97,7 +97,7 @@ export default function SpotifyWidget({
           )}
         </motion.div>
 
-        <div className="text-blue-100 text-xs font-medium max-w-[120px] truncate font-inter me-2">
+        <div className="hidden sm:block text-blue-100 text-xs font-medium max-w-[120px] truncate font-inter m-0 sm:me-2">
           {track.name}
         </div>
 

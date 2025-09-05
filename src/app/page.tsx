@@ -12,7 +12,7 @@ export default function Page() {
         tagLine={homeContent.hero.tagLine}
         alternateTagLine={homeContent.hero.alternateTagLine}
       />
-      <div className="fixed bottom-12 left-12 z-50">
+      <div className="fixed bottom-4 left-4 sm:bottom-12 sm:left-12 z-50">
         <SpotifyWidget showDetails={true} />
       </div>
     </>
