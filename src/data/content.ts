@@ -35,13 +35,13 @@ export const homeContent = {
     heading: "About Yash",
     description: `
       <p>Hello! I'm a recent master's graduate in Advanced Computer Science, currently based in Liverpool. Originally from India, I'm passionate about understanding how things work, whether in tech or beyond. My interests span across software development and innovative problem solving.</p>
-      <p>As a dedicated developer, I specialize in creating robust applications using technologies like React, .NET, Python and AWS. My journey in tech has led me to develop innovative solutions that not only meet functional requirements but are also crafted with attention to detail and usability.</p>
+      <p>As a dedicated developer, I specialize in creating robust applications using technologies like React, .NET, Python and Azure. My journey in tech has led me to develop innovative solutions that not only meet functional requirements but are also crafted with attention to detail and usability.</p>
       <p>When I'm not coding, you'll find me exploring new technologies, playing new tunes on guitar or hiking up the nearest peak.</p>
-      <p>Always excited to take on new challenges and bring fresh perspectives to the world of software development!</p>
+      <p>Always excited to take on new challenges and bring fresh perspectives to the world of tech!</p>
       `,
     buttonLabel: "Resume",
     buttonLink: "/Yash_Soni_CV.pdf",
-    avatar: "/avatar.jpg",
+    avatar: "/avatar3.jpg",
     imageAlt: "Avatar image",
   },
 };
@@ -193,6 +193,15 @@ export const techContent = {
 export const experienceContent = {
   experience: [
     {
+      title: "Full Stack .NET and React Web Developer",
+      logo: "/logos/CPL_Border.png",
+      duration: "Jun 2025 - Present",
+      institution: "CPL Software",
+      description: `
+      <ul>
+      </ul>`,
+    },
+    {
       title: "Freelance Web Developer",
       logo: "/logos/RabaUk.png",
       duration: "Feb 2024 - Jun 2024",
@@ -205,7 +214,7 @@ export const experienceContent = {
       </ul>`,
     },
     {
-      title: "Full Stack Developer",
+      title: ".NET Developer",
       logo: "/logos/TCS.png",
       duration: "Oct 2020 - Aug 2023",
       institution: "Tata Consultancy Services",
