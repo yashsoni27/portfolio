@@ -34,10 +34,10 @@ export const homeContent = {
   biography: {
     heading: "About Yash",
     description: `
-      <p>Hello! I'm a recent master's graduate in Advanced Computer Science, currently based in Liverpool. Originally from India, I'm passionate about understanding how things work, whether in tech or beyond. My interests span across software development and innovative problem solving.</p>
-      <p>As a dedicated developer, I specialize in creating robust applications using technologies like React, .NET, Python and Azure. My journey in tech has led me to develop innovative solutions that not only meet functional requirements but are also crafted with attention to detail and usability.</p>
-      <p>When I'm not coding, you'll find me exploring new technologies, playing new tunes on guitar or hiking up the nearest peak.</p>
-      <p>Always excited to take on new challenges and bring fresh perspectives to the world of tech!</p>
+      <p>Hello! I'm a Full Stack Developer based in Liverpool, originally from India. I'm passionate about understanding how things work — whether in tech or beyond — and I enjoy turning complex problems into clean, practical solutions.</p>
+      <p>Currently working at CPL Software, I build and maintain full-stack applications using technologies like React, .NET, Python, and Azure. I care about writing software that's not just functional, but reliable, thoughtful, and easy to use.</p>
+      <p>When I'm not coding, you'll find me exploring new technologies, playing new tunes on guitar, or hiking up the nearest peak.</p>
+      <p>Always up for a good challenge and keen to keep growing in the world of tech!</p>
       `,
     buttonLabel: "Resume",
     buttonLink: "/Yash_Soni_CV.pdf",
@@ -199,6 +199,10 @@ export const experienceContent = {
       institution: "CPL Software",
       description: `
       <ul>
+        <li>Fixed a critical performance issue that caused large batch jobs to freeze indefinitely, restoring reliable processing for high-volume workflows.</li>
+        <li>Built a payment splitting feature allowing customers to manage separate payment streams under different mandates, integrated end-to-end from database to UI using GoCardless.</li>
+        <li>Improved compliance and reduced risk by securing sensitive API endpoints to prevent personal data from leaking into cloud monitoring logs, as part of a GDPR initiative.</li>
+        <li>Stabilised a background document processing system that was failing inconsistently, ensuring reliable and predictable job execution.</li>
       </ul>`,
     },
     {
